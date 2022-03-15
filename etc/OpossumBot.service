@@ -1,0 +1,18 @@
+[Unit]
+Description=OpossumBot service
+After=network.target
+StartLimitIntervalSec=0
+
+# User and ExecStart (Lines 12 and 13) both need be filled out before being applied
+# to `/etc/systemd/system/`
+# ExecStart will point at the node runtime file
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=
+ExecStart= 
+
+[Install]
+WantedBy=multi-user.target
