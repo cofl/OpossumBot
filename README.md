@@ -1,5 +1,5 @@
 # OpossumBot 2
-OpossumBot 2 is a rework of @contrastellar's original PossumBot Discord text bot. This bot is primarily made for fun, and with the idea of having fun and learning new things in Node.JS and in software development as a whole.
+OpossumBot 2 is a rework of contrastellar's original PossumBot Discord text bot. This bot is primarily made for fun, and with the idea of having fun and learning new things in Node.JS and in software development as a whole.
 
 ## Features
 * A variety of self-hosted Opossum pictures
@@ -18,4 +18,5 @@ Suggsetions for the bot are always welcome, please either start an issue, or for
 * ws v.8.5.0
 
 ## Special Thanks
-Thanks to NFreak and Scholarr_ for their ideas and suggestions when I rewrote this bot in 2020. Thanks to the MTU Huskies Discord for the original idea, and the triple-dog dare in order to even make this at all. Their continuous harassment of my bot has been a great motivator to make it better.
+* NFreak and Scholarr_ (on twitter) for their ideas and suggestions when I rewrote this bot in 2020. 
+* MTU Huskies Discord for the original idea, and the triple-dog dare in order to even make this at all. Their continuous harassment of my bot has been a great motivator to make it better.
