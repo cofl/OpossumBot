@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "discord.js": "^13.6.0",
+    "node-fetch": "^3.2.3",
+    "ping": "^0.4.1",
+    "ws": "^8.5.0"
+  }
+}
