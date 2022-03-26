@@ -13,6 +13,7 @@ Suggsetions for the bot are always welcome, please either start an issue, or for
 ## Dependencies
 * Chalk v.5.0.1+
 * discord.js v.13.6.0
+* fs v.0.0.1-security
 * node-fetch v.3.2.3
 * ping v.0.4.1
 * ws v.8.5.0
