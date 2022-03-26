@@ -10,7 +10,7 @@ OpossumBot 2 is a rework of contrastellar's original PossumBot Discord text bot.
 ## Contribute
 Suggsetions for the bot are always welcome, please either start an issue, or fork and make a pull request! I'll take a look at it as soon as I can!
 
-## Dependencies
+## Dependencies 
 * Chalk v.5.0.1+
 * discord.js v.13.6.0
 * fs v.0.0.1-security
