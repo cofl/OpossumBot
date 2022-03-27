@@ -1,6 +1,9 @@
 # Discord Token
 *.token
 
+#.vscode
+.vscode/
+
 # Logs
 logs
 *.log

@@ -8,4 +8,5 @@ function configure(){
 
     isConfigured = true;
     console.log("Configuration complete");
+    return;
 }
