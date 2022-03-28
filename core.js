@@ -21,7 +21,7 @@ const updateCacheEvery = 500;
 let numMessages = 0;
 let mainGuild = null;
 
-const OpossumBot_2 = new Discord.Client({
+const Opossum = new Discord.Client({
     ws: { intents: new Discord.Intents(Discord.Intents.ALL)},
 	partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 });
@@ -34,3 +34,32 @@ const bootStart = Date.now();
 const ping = require('ping');
 //the hosts to test the ping for. this can be any viable host, however for the baseline, I've just used Google + Discord
 const hosts = ['google.com', 'discordapp.com'];
+
+const startup = require("./src/startup.js");
+startup.pingFunction(hosts);
+
+console.log("Startup");
+Opossum.login(discordToken).catch(function (reason){
+    console.log(reason);
+});
+
+//Heavily inspired by TeddyBot by @tomorrow_nf
+
+Opossum.on('ready', async () => {
+    Opossum.setMaxListeners(0);
+    await Opossum.user.setActivity("aaaaaaa! <3");
+    console.log('Startup complete!');
+
+});
+
+Opossum.on('message', async msg => {
+    try {
+        if(msg.author.bot) return; //Ignore self-messages
+
+        //Split into array of arguments (for easier parsing later on)
+        let args = message.content.toLowerCase().split(" ");
+
+    } catch (e) {
+        console.error(e);
+    }
+});
