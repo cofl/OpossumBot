@@ -34,5 +34,3 @@ const bootStart = Date.now();
 const ping = require('ping');
 //the hosts to test the ping for. this can be any viable host, however for the baseline, I've just used Google + Discord
 const hosts = ['google.com', 'discordapp.com'];
-
-
