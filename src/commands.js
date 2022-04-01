@@ -4,3 +4,7 @@
 */
 const fs = require('fs');
 let PREFIX = '!';
+
+async function userCommands(command, args){
+    //TODO add user commands
+}

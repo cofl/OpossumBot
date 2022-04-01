@@ -1,5 +1,5 @@
 /*
-*   OpossumBot_2
+*   OpossumBot_2 bot core
 *   Author: contrastellar (Gabriella Agathon)
 */
 
@@ -7,6 +7,7 @@
 import Chalk from "chalk";
 import Discord from "discord.js";
 import fs from "fs";
+import { maxHeaderSize } from "http";
 //import Ping from "ping";
 
 const config = require("./src/config.js");
@@ -58,6 +59,12 @@ Opossum.on('message', async msg => {
 
         //Split into array of arguments (for easier parsing later on)
         let args = message.content.toLowerCase().split(" ");
+
+        if(message.mentions.has(Opossum.user) && message.content[message.content.length - 1] == "?"){
+            msg.channel.reply(", why are you asking me?");
+        }
+
+        await commands.userCommands(message, args);
 
     } catch (e) {
         console.error(e);
