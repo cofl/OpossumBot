@@ -20,7 +20,6 @@ To run locally, you do need to pull the requisite NPM Dependencies (as listed be
 This is supposed to be a fun project, and I'm always happy to take suggestions!
 
 ## Dependencies 
-* Chalk v.5.0.1+
 * discord.js v.13.6.0
 * fs v.0.0.1-security
 * node-fetch v.3.2.3

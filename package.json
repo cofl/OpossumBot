@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/Contrastellar/OpossumBot/",
   "dependencies": {
-    "chalk": "^5.0.1",
     "discord.js": "^13.6.0",
     "fs": "0.0.1-security",
     "node-fetch": "^3.2.3",
