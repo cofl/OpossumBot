@@ -8,3 +8,5 @@ let PREFIX = '!';
 async function userCommands(command, args){
     //TODO add user commands
 }
+
+module.exports = { userCommands };

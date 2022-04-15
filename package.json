@@ -1,4 +1,21 @@
 {
+  "name": "opossumbot",
+  "version": "2.0.0",
+  "description": "Opossum Posting Discord Bot",
+  "main": "core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com:Contrastellar/OpossumBot.git"
+  },
+  "author": "contrastellar",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Contrastellar/OpossumBot/issues"
+  },
+  "homepage": "https://github.com/Contrastellar/OpossumBot/",
   "dependencies": {
     "chalk": "^5.0.1",
     "discord.js": "^13.6.0",

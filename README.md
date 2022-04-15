@@ -7,8 +7,11 @@ OpossumBot 2 is a rework of contrastellar's original PossumBot Discord text bot.
 * A 24/7 uptime bot
 * My love and affection (mostly for Opossums) poured into a Discord bot
 
+## Invite OpossumBot
+[Go here!](http://invite.contrastellar.com "Redirect to a Discord Invite Page")
+
 ## Hosting
-Currently, Opossumbot is hosted on a droplet in DigitalOcean. I'm currently paying ~$12/month for this, and it is constantly up. The host runs `apt-get dist-upgrade` at 05z , and reboots at 06z (UTC). Hourly `apt upgrades` are run as well. If you *manage* to crash the bot, the bot is configured in `systemd` according to the `OpossumBot.service` file that is in `./etc/`, which includes automatically restarting the `node` task.
+Currently, Opossumbot is hosted on a droplet in DigitalOcean. I'm currently paying ~$12/month for this, and it is constantly up. The host runs `apt-get dist-upgrade` at 05z (UTC), and reboots at 06z. Hourly `apt upgrades` are run as well. If you *manage* to crash the bot, the bot is configured in `systemd` according to the `OpossumBot.service` file that is in `./etc/`, which includes automatically restarting the `node` task.
 
 ## Contribute
 Suggsetions for the bot are always welcome, please either start an issue, or fork and make a pull request! I'll take a look at it as soon as I can!
@@ -27,4 +30,4 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 ## Special Thanks
 * MTU Huskies Discord for the original idea, and the triple-dog dare in order to even make this at all. Their continuous harassment of my bot has been a great motivator to make it better.
 * NFreak and Scholarr_ (on twitter) for their ideas and suggestions when I rewrote this bot in 2020.
-* @jeongm-in (Plep) for being a lil development buddy and giving me ideas for DB management and setting up GitHub Actions
+* @jeongm-in (Plep) for being a lil development buddy and giving me ideas for DB management and (hopefully) setting up GitHub Actions

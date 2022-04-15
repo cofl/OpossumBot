@@ -2,16 +2,20 @@
 *   startup utilities for OpossumBot_2
 */
 
-import Ping from "ping";
+// Node imports
+const Ping = require("ping");
 
 function pingFunction(host){
-    host.array.forEach(element => {
+    host.forEach(element => {
         const pStart = Date.now();
-        Ping.sys.probe(host, function(isAlive){
+        Ping.sys.probe(element, function(isAlive){
             let pFinish = Date.now();
-            let activePing = isAlive ? chalk.grah(host) + ' is alive... report: ' + pReport + 'ms' : 'host ' + host + ' is dead';
             let pReport = pFinish - pStart;
+            let activePing = isAlive ? element + ' is alive... report: ' + pReport + 'ms' : 'host ' + host + ' is dead';
+            console.log(activePing);
         });
     });
 
 }
+
+module.exports = { pingFunction };
