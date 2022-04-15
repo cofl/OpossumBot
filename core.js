@@ -9,6 +9,20 @@ const VERSION = "PRERELEASE";
 // Node imports
 const Discord = require("discord.js");
 const fs = require("fs");
+const { argv } = require("process");
+
+// yargs
+require("yargs").scriptName("opossumbot")
+.usage('$0 <cmd> [args]')
+.help()
+.argv;
+
+
+// Parse any command line arguments
+const debugState = argv[2];
+argv.forEach((val, index) =>{
+    console.log(`${index}: ${val}`)
+});
 
 const config = require("./src/config.js");
 config.configure();

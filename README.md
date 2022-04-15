@@ -25,6 +25,7 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 * node-fetch v.3.2.3
 * ping v.0.4.1
 * ws v.8.5.0
+* yargs v.17.4.1
 
 ## Special Thanks
 * MTU Huskies Discord for the original idea, and the triple-dog dare in order to even make this at all. Their continuous harassment of my bot has been a great motivator to make it better.
