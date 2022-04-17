@@ -3,21 +3,51 @@
 * Author: contrastellar (Gabriella Agathon, 2022)
 */
 const fs = require('fs');
-let PREFIX = '!';
+const mysql = require('mysql');
 
-async function userCommands(command, args){
+/**
+ * This section uses two files "user" and "mysql", to allow
+ * 'secure' connections to my database.
+ */
+const dbURL = fs.readFileSync("./db.url", "utf8").replace("\n", "");
+const dbUser = fs.readFileSync("./user.pass", "utf8").replace("\n", "");
+const dbPass = fs.readFileSync("./mysql.pass", "utf8").replace("\n", "");
+
+var connection = mysql.createConnection({
+    host: dbURL,
+    user: dbUser,
+    password: dbPass,
+    database: "OpossumBot"
+});
+
+connection.connect(function(err) {
+    if (err) {
+      console.error('error connecting: ' + err.stack);
+      return;
+    }
+   
+    console.log('connected as id ' + connection.threadId);
+  });
+
+async function userCommands(msg, args){
     //TODO add user commands
 
-    /**
+     /**
      * !git
      * links back to the github repo
      */
+    if(args[0] === "!git"){
+        msg.reply("https://github.com/Contrastellar/OpossumBot");
+    }
 
     /**
      * !possum
      * Fetches an opossum from the db, attaches
      * alt text, sends the message
      */
+    if(args[0] === "!possum"){
+        
+    }
     
     //TODO both stroll and crypto need to be added to the db as blobs
 
