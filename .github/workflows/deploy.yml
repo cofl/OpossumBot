@@ -30,8 +30,11 @@ jobs:
           known_hosts: 'placeholder'
           
       - name: Adding known hosts
-        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+        run: |
+          echo $(PWD)
+          echo $(whoami)
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
         
       - name: Deploy with rsync
-        run: rsync -avz $GITHUB_WORKSPACE ${{ secrets.SSH_USER }}@${{secrets.SSH_HOST }}://home/contrastellar/OpossumBot_run
-        
+        run: rsync -avz $GITHUB_WORKSPACE ${{ secrets.SSH_USER }}@${{secrets.SSH_HOST }}:/home/contrastellar/OpossumBot_run
+      
