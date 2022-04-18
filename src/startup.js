@@ -5,6 +5,12 @@
 // Node imports
 const Ping = require("ping");
 
+function argvPrint(argv){
+    argv.forEach((val, index) =>{
+        console.log(`${index}: ${val}`)
+    });
+}
+
 function pingFunction(host){
     host.forEach(element => {
         const pStart = Date.now();
@@ -18,4 +24,4 @@ function pingFunction(host){
 
 }
 
-module.exports = { pingFunction };
+module.exports = { pingFunction, argvPrint };

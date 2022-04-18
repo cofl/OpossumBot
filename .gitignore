@@ -1,6 +1,10 @@
 # Discord Token
 *.token
 
+# MySQL
+*.pass
+*.url
+
 #.vscode
 .vscode/
 
