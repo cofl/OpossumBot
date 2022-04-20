@@ -34,3 +34,4 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 * NFreak and Scholarr_ (on twitter) for their ideas and suggestions when I rewrote this bot in 2020.
 * @jeongm-in (Plep) for being a lil development buddy and giving me ideas for DB management and (hopefully) setting up GitHub Actions
 * @MiGhTyMech12 for spell-checking the README.
+* to ethan.
