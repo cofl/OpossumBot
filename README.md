@@ -33,3 +33,4 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 * MTU Huskies Discord for the original idea, and the triple-dog dare in order to even make this at all. Their continuous harassment of my bot has been a great motivator to make it better.
 * NFreak and Scholarr_ (on twitter) for their ideas and suggestions when I rewrote this bot in 2020.
 * @jeongm-in (Plep) for being a lil development buddy and giving me ideas for DB management and (hopefully) setting up GitHub Actions
+* to ethan.
