@@ -16,7 +16,7 @@ OpossumBot 2 is a rework of contrastellar's original PossumBot Discord text bot.
 Currently, Opossumbot is hosted on a droplet in DigitalOcean. I'm currently paying ~$12/month for this, and it is constantly up. The host runs `apt-get dist-upgrade` at 05z (UTC), and reboots at 06z. Hourly `apt upgrades` are run as well. If you *manage* to crash the bot, the bot is configured in `systemd` according to the `OpossumBot.service` file that is in `./etc/`, which includes automatically restarting the `node` task.
 
 ## Contribute
-Suggsetions for the bot are always welcome, please either start an issue, or fork and make a pull request! I'll take a look at it as soon as I can!
+Suggestions for the bot are always welcome, please either start an issue, or fork and make a pull request! I'll take a look at it as soon as I can!
 To run locally, you do need to pull the requisite NPM Dependencies (as listed below). In the future, I'm working to set up a system that permits you to test your changes against a "duplicate" database that's separate from production, and lets users do small-scale testing. Or, of course, you can test against your own MySQL Database, running either your own schema, or using the sample files provided in `./etc/*.mysql`
 
 This is supposed to be a fun project, and I'm always happy to take suggestions!
@@ -33,3 +33,4 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 * MTU Huskies Discord for the original idea, and the triple-dog dare in order to even make this at all. Their continuous harassment of my bot has been a great motivator to make it better.
 * NFreak and Scholarr_ (on twitter) for their ideas and suggestions when I rewrote this bot in 2020.
 * @jeongm-in (Plep) for being a lil development buddy and giving me ideas for DB management and (hopefully) setting up GitHub Actions
+* @MiGhTyMech12 for spell-checking the README.
