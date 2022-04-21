@@ -24,7 +24,7 @@ require("yargs").scriptName("opossumbot")
 .argv;
 
 /**
- * add file dependancies
+ * add file dependencies
  */
 const startup = require('./src/startup.js');
 const misc = require("./src/misc.js");
