@@ -17,6 +17,7 @@ import { hideBin } from "yargs/helpers"
 
 // internal
 import { ping, dumpArgv } from "./startup"
+import { initializeDB, populateDefaultImages } from "./sql/migrations"
 import { configure } from "./config"
 import { userCommands } from "./commands"
 
@@ -47,6 +48,11 @@ void async function main()
         dumpArgv(process.argv)
     }
 
+    // db
+    await initializeDB()
+    await populateDefaultImages()
+
+    // config
     configure()
 
     // make sure we can reach all our resources

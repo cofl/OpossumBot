@@ -17,8 +17,10 @@ services:
     entrypoint: /usr/local/share/docker-init.sh
     command: sleep infinity
   db:
-    image: mariadb:10.7
+    image: postgres:14.2-alpine
     env_file: db.env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
     deploy:
       restart_policy:
         condition: on-failure
@@ -26,8 +28,8 @@ services:
         max_attempts: 3
         window: 30s
     expose:
-      - '3006'
+      - '5432'
     volumes:
       - type: volume
         source: sql-db
-        target: /var/lib/mysql
+        target: /var/lib/postgresql/data

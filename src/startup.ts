@@ -2,10 +2,12 @@
  *  startup utilities for OpossumBot_2
  */
 import { log } from 'console';
+import { readFile } from 'fs/promises';
+
 import { promise } from 'ping';
 const { probe } = promise;
-
 import { Temporal } from '@js-temporal/polyfill';
+import { sql } from './sql';
 
 export function dumpArgv(argv: string[]){
     for(const [index, value] of argv.entries())
