@@ -1,4 +1,5 @@
 [Bb]uild
+discord-token.env
 
 # Discord Token
 *.token

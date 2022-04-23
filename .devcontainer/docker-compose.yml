@@ -8,7 +8,9 @@ services:
       dockerfile: Dockerfile
       args:
         INSTALL_ZSH: "false"
-    env_file: db.env
+    env_file:
+        - db.env
+        - ../discord-token.env
     volumes:
       - /var/run/docker.sock:/var/run/docker-host.sock
       - ..:/workspace:cached

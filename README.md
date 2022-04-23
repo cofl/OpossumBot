@@ -21,6 +21,13 @@ To run locally, you do need to pull the requisite NPM Dependencies (as listed be
 
 This is supposed to be a fun project, and I'm always happy to take suggestions!
 
+### Discord Token
+Add your discord token to a file `discord-token.env` at the root of the project.
+
+```ini
+DISCORD_TOKEN=$YourTokenHere
+```
+
 ## Dependencies 
 * discord.js v.13.6.0
 * fs v.0.0.1-security

@@ -17,6 +17,7 @@ import { hideBin } from "yargs/helpers"
 
 // internal
 import { ping, dumpArgv } from "./startup"
+import { setupTeardown } from "./teardown"
 import { initializeDB, populateDefaultImages } from "./sql/migrations"
 import { configure } from "./config"
 import { userCommands } from "./commands"
@@ -55,6 +56,9 @@ void async function main()
     // config
     configure()
 
+    // cleanup
+    setupTeardown()
+
     // make sure we can reach all our resources
     if(!await ping([
         'google.com',
@@ -65,7 +69,9 @@ void async function main()
         intents: [
             Discord.Intents.FLAGS.GUILDS,
             Discord.Intents.FLAGS.GUILD_MESSAGES,
-        ]
+            Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+            Discord.Intents.FLAGS.GUILD_MESSAGE_TYPING,
+        ],
     })
 
     try {

@@ -19,14 +19,21 @@ type AddImageArguments = {
     path: string,
     user?: Snowflake
 }
-export async function addImage({ path, user }: AddImageArguments){
-    const now = Temporal.Now.instant()
-    const data = await readFile(path)
-    const hash = createHash('sha256').update(data).digest().readBigInt64LE().toString()
-    const userID = user ? Number(user) : null
+export async function addImages(images: AddImageArguments[]){
+    const created = Temporal.Now.instant().toString()
+    const imageData = await Promise.all(images.map(async ({ path, user }) => {
+        const image = await readFile(path)
+        const hash = createHash('sha256')
+            .update(image)
+            .digest()
+            .readBigInt64LE()
+            .toString()
+        const added_by = user ? Number(user) : null
+        return { hash, image, created, added_by }
+    }))
     return await sql`
-        insert into possum_images (hash, image, created, added_by) values (
-            ${hash}, ${data}, ${now.toString()}, ${userID}
-        ) on conflict do nothing
+        insert into possum_images ${
+            sql(imageData, 'hash', 'image', 'added_by', 'created')
+        } on conflict do nothing
     `
 }

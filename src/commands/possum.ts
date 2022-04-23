@@ -1,7 +1,6 @@
 import { Message, MessageAttachment } from "discord.js"
-import { sync as glob } from "glob"
-import { random } from "../util"
 import { warn } from "console"
+import { sql } from "../sql"
 
 const IMAGE_GLOB = "/home/contrastellar/PossumBot/img/possum/**/*"
 
@@ -13,15 +12,16 @@ const IMAGE_GLOB = "/home/contrastellar/PossumBot/img/possum/**/*"
 
 export const name = "!possum"
 export async function action(msg: Message){
-    const file = random(glob(IMAGE_GLOB))
-    if(!file){
+    const [ row ] = await sql`select * from random_image();`
+    if(!row){
         warn("No files were retrieved when trying to execute !possum.")
         await msg.channel.send(":possum:")
         return
     }
+    console.log(row)
     await msg.channel.send({
-        attachments: [
-            new MessageAttachment(file)
+        files: [
+            new MessageAttachment(row.image, `image.png`)
         ]
     })
 }
