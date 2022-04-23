@@ -1,14 +1,12 @@
 /**
  * config file for OpossumBot_2
  */
-const fs = import("fs");
+import fs from "fs";
 
-function configure() {
+export function configure() {
     let isConfigured = false;
 
     isConfigured = true;
     console.log("Configuration complete");
     return;
 }
-
-module.exports = { configure };
