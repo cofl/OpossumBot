@@ -18,12 +18,12 @@ import { hideBin } from "yargs/helpers"
 // internal
 import { ping, dumpArgv } from "./startup"
 import { configure } from "./config"
+import { userCommands } from "./commands"
 
 /**
  * add file dependencies
  */
 import * as misc from "./misc"
-import * as commands from "./commands"
 
 const updateCacheEvery = 500
 let numMessages = 0
@@ -90,7 +90,7 @@ void async function main()
             if(mentions.has(self) && content.at(-1) == "?")
                msg.reply("???")
 
-            await commands.userCommands(msg, args)
+            await userCommands(msg, args)
         } catch(err) {
             error(err)
         }
