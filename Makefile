@@ -1,6 +1,6 @@
 TSC=npx tsc
 TARGET=bot
-.PHONY=all clean
+.PHONY=all clean run
 
 all: bot
 
@@ -9,6 +9,9 @@ $(TARGET):
 
 watch:
 	$(TSC) --watch src
+
+run: $(TARGET)
+	node .
 
 clean:
 	rm -rf build *.tsbuildinfo

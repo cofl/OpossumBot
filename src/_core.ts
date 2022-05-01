@@ -6,12 +6,28 @@
 // environment
 import { log, info, warn, error } from 'console'
 import { version as VERSION } from "../package.json"
-const {
+import { existsSync, readFileSync } from 'fs'
+import { resolve } from 'path/posix'
+
+let {
     DISCORD_TOKEN
 } = process.env
+if(!DISCORD_TOKEN){
+    /* try loading it from $Repo/discord-token.env */
+    const path = resolve(__dirname, '../discord-token.env');
+    if(existsSync(path)){
+        const token = readFileSync(path, 'utf-8').trim().split('=')[1];
+        if(token){
+            DISCORD_TOKEN = token;
+        }
+    }
+    if(!DISCORD_TOKEN){
+        throw "Environment variable DISCORD_TOKEN did not have a value and could not be loaded!"
+    }
+}
 
 // external
-import Discord from "discord.js"
+import Discord, { Client } from "discord.js"
 import yargs from "yargs"
 import { hideBin } from "yargs/helpers"
 
@@ -31,6 +47,7 @@ const updateCacheEvery = 500
 let numMessages = 0
 let mainGuild = null
 
+export let Opossum: Client
 void async function main()
 {
     // configure command-line options and parse
@@ -65,7 +82,7 @@ void async function main()
         'discordapp.com'
     ])) throw new Error("Cannot reach all resources.")
 
-    const Opossum = new Discord.Client({
+    Opossum = new Discord.Client({
         intents: [
             Discord.Intents.FLAGS.GUILDS,
             Discord.Intents.FLAGS.GUILD_MESSAGES,
