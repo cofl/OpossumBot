@@ -3,6 +3,9 @@
 
 OpossumBot 2 is a rework of contrastellar's original PossumBot Discord text bot. This bot is primarily made for fun, and with the idea of having fun and learning new things in Node.JS and in software development as a whole.
 
+## Known Problems
+The deploy task does not function as intented! Currently this bot is in a >PRERELEASE< state. This will be fixed later.
+
 ## Features
 * A variety of self-hosted Opossum pictures
 * Funny commands
