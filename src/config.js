@@ -7,7 +7,7 @@ function configure() {
     let isConfigured = false;
 
     isConfigured = true;
-    console.log("Configuration complete");
+    console.log("Configuration complete"); //This prints first
     return;
 }
 

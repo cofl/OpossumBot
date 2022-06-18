@@ -8,6 +8,9 @@
 #.vscode
 .vscode/
 
+# node testing
+yargs-test.js
+
 # Logs
 logs
 *.log

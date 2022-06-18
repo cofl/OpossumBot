@@ -1,7 +1,7 @@
-# OpossumBot 2
+# OpossumBot v.2
 [comment]: <> "[![deploy-to-host](https://github.com/Contrastellar/OpossumBot/actions/workflows/deploy.yml/badge.svg)](https://github.com/Contrastellar/OpossumBot/actions/workflows/deploy.yml)"
 
-OpossumBot 2 is a rework of contrastellar's original PossumBot Discord text bot. This bot is primarily made for fun, and with the idea of having fun and learning new things in Node.JS and in software development as a whole.
+OpossumBot v.2 is a rework of contrastellar's original PossumBot Discord text bot. This bot is primarily made for fun, and with the idea of having fun and learning new things in Node.JS and in software development as a whole.
 
 ## Known Problems
 The deploy task does not function as intented! Currently this bot is in a >PRERELEASE< state. This will be fixed later.
@@ -16,7 +16,7 @@ The deploy task does not function as intented! Currently this bot is in a >PRERE
 [Go here!](http://invite.contrastellar.com "Redirect to a Discord Invite Page")
 
 ## Hosting
-Currently, Opossumbot is hosted on a droplet in DigitalOcean. I'm currently paying ~$12/month for this, and it is constantly up. The host runs `apt-get dist-upgrade` at 05z (UTC), and reboots at 06z. Hourly `apt upgrades` are run as well. If you *manage* to crash the bot, the bot is configured in `systemd` according to the `OpossumBot.service` file that is in `./etc/`, which includes automatically restarting the `node` task.
+Currently, Opossumbot is hosted on a droplet in DigitalOcean. I'm currently paying ~$12/month for this, and it is constantly up. The host runs `apt-get dist-upgrade` at 05z (UTC), and reboots at 06z. Hourly `apt upgrades` are run as well. If you *manage* to crash the bot, the bot is configured in `systemd` vaugely according to the `OpossumBot.service` file that is in `./etc/`, which includes automatically restarting the `node` task.
 
 ## Contribute
 Suggestions for the bot are always welcome, please either start an issue, or fork and make a pull request! I'll take a look at it as soon as I can!
@@ -27,6 +27,7 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 ## Dependencies 
 * discord.js v.13.6.0
 * fs v.0.0.1-security
+* mysql2 v.2.3.3
 * node-fetch v.3.2.3
 * ping v.0.4.1
 * ws v.8.5.0
@@ -37,4 +38,4 @@ This is supposed to be a fun project, and I'm always happy to take suggestions!
 * NFreak and Scholarr_ (on twitter) for their ideas and suggestions when I rewrote this bot in 2020.
 * @jeongm-in (Plep) for being a lil development buddy and giving me ideas for DB management and (hopefully) setting up GitHub Actions
 * @MiGhTyMech12 for spell-checking the README.
-* to ethan.
+* to ethan, who is solely responsible.

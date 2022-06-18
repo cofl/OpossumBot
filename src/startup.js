@@ -2,15 +2,20 @@
 *   startup utilities for OpossumBot_2
 */
 
+
 // Node imports
 const Ping = require("ping");
+const Process = require("process");
+const pjson = require(Process.cwd() + "/package.json");
 
 function argvPrint(argv){
-    argv.forEach((val, index) =>{
-        console.log(`${index}: ${val}`)
-    });
+    console.log("Verbose? " + argv.v);
 }
 
+/*
+* This function does not properly AWAIT for the ping report to finish before going to the 
+* next task
+*/
 function pingFunction(host){
     host.forEach(element => {
         const pStart = Date.now();
@@ -21,7 +26,10 @@ function pingFunction(host){
             console.log(activePing);
         });
     });
-
 }
 
-module.exports = { pingFunction, argvPrint };
+function printPackageInfo(){
+    console.log(pjson['dependencies']);
+}
+
+module.exports = { pingFunction, argvPrint, printPackageInfo };
