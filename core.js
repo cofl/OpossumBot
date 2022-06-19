@@ -6,7 +6,7 @@
 /**
  * Version number definition (need to setup for import from package.json)
  */
-const VERSION = "2.PRERELEASE";
+const VERSION = "2-PRERELEASE";
 
 /**
  * NPM packages

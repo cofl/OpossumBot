@@ -57,12 +57,20 @@ async function userCommands(msg, args){
          * alt text, sends the message
          */
         case "!possum":
-            // Need to grab number of opossums first
-            let opossumCount;
-            connection.query("SELECT count(Picture) from OpossumPictures;", function(err, results, fields){
+            let query = "SELECT * from `OpossumPictures`;";
+            connection.query(query, function(err, results, fields){
                 console.log(results);
             });
-            msg.reply("Sorry, this feature isn't implemented yet!\nDebug: Opossum Count --> " + opossumCount);
+        break;
+
+        case "!count":
+            // Need to grab number of opossums first
+            let opossumCount = new Number;
+            connection.query("SELECT count(Picture) as `count` from `OpossumPictures`;", function(err, results, fields){
+                console.log(results[0].count);
+                opossumCount = results[0].count;
+                msg.reply("Opossum Count -> " + opossumCount);
+            });
 
         break;
 
@@ -106,7 +114,7 @@ async function userCommands(msg, args){
         case "!wheel":
 
         break;
-        
+
         /**
          * @command: metar
          * could be a fun command to fetch data from the NWS/NOAA
