@@ -6,19 +6,19 @@
 /**
  * Version number definition (need to setup for import from package.json)
  */
-const VERSION = "2-PRERELEASE";
+const VERSION: string = "2-PRERELEASE";
 
 /**
  * NPM packages
  */
-const Discord = require("discord.js");
-const fs = require("fs");
+import Discord from 'discord.js';
+import fs from 'fs';
 //const argv = require("process");
 
 /**
  * Import yargs and configure
  */
-var argv = require("yargs")
+const argv = require("yargs")
 .scriptName("opossumbot")
 .usage('Usage: $0 <cmd> -v')
 .option('v',{
@@ -39,12 +39,12 @@ var argv = require("yargs")
 /**
  * add file dependencies
  */
-const startup = require('./src/startup.js');
-const misc = require("./src/misc.js");
-const commands = require("./src/commands.js");
-const config = require("./src/config.js");
-const { version } = require("os");
-const yargs = require("yargs");
+import * as startup from './startup';
+import * as misc from './misc';
+import * as commands from './commands';
+import * as config from './config';
+import { version } from 'os';
+import yargs from 'yargs';
 
 /**
  * Parse command line arguments (for debug state)
@@ -84,9 +84,9 @@ console.log("OpossumBot v."+ VERSION +" running");
 
 Opossum.on('ready', async () => {
     Opossum.setMaxListeners(0);
-    Opossum.user.setActivity("Now updated to v." + VERSION);
+    Opossum.user?.setActivity("Now updated to v." + VERSION);
     console.log('Startup complete!');
-    if(version == "PRERELEASE"){
+    if(VERSION === "PRERELEASE"){
         console.log("Startup is complete at this point!")
     }
 });
@@ -98,7 +98,7 @@ Opossum.on('messageCreate', async msg => {
         //Split into array of arguments (for easier parsing later on)
         let args = msg.content.toLowerCase().split(" ");
 
-        if (msg.mentions.has(Opossum.user) && msg.content[msg.content.length - 1] == "?") {
+        if (msg.mentions.has(Opossum.user!) && msg.content[msg.content.length - 1] == "?") {
 			msg.reply("???")
 		}
 

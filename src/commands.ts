@@ -3,16 +3,17 @@
 * Author: contrastellar (Gabriella Agathon, 2022)
 */
 
-const fs = require('fs');
-const mysql = require('mysql2');
+import { Message } from 'discord.js';
+import { readFileSync } from 'fs';
+import mysql, { ConnectionOptions } from 'mysql2';
 
 /**
  * This section uses two files "user" and "mysql", to allow
  * 'secure' connections to my database.
  */
-dbURL = fs.readFileSync("./db.url", "utf8").replace("\n", "");
-dbUser = fs.readFileSync("./user.pass", "utf8").replace("\n", "");
-dbPass = fs.readFileSync("./mysql.pass", "utf8").replace("\n", "");
+const dbURL = readFileSync("./db.url", "utf8").replace("\n", "");
+const dbUser = readFileSync("./user.pass", "utf8").replace("\n", "");
+const dbPass = readFileSync("./mysql.pass", "utf8").replace("\n", "");
 
 /**
  * This assures there's a session, so that way there's
@@ -20,16 +21,13 @@ dbPass = fs.readFileSync("./mysql.pass", "utf8").replace("\n", "");
  * table --
  * Parsed as a JSON object
  */
-let connectionInfo = {
+let connectionInfo: ConnectionOptions = {
     host: dbURL,
     user: dbUser,
     password: dbPass,
 }
 
-var connection = mysql.createConnection(connectionInfo);
-
-connectionInfo, dbUser, dbPass = null;  // Clears out the informationt that's otherwise stored in plaintext
-                                        // In theory the info's saved in the connection variable, but it may be hashed instead of just sitting as plaintext
+const connection = mysql.createConnection(connectionInfo);
 
 connection.connect(function(err) {
     if (err) {
@@ -45,7 +43,7 @@ connection.query("USE OpossumBot;", function (error, results, fields){
     return;
 });
 
-async function userCommands(msg, args){
+export async function userCommands(msg: Message, args: string[]){
     //TODO This can be set up as a switch case that links to other functions as well, this would probably be easier and allow some kind of automation
      
 
@@ -67,8 +65,8 @@ async function userCommands(msg, args){
             // Need to grab number of opossums first
             let opossumCount = new Number;
             connection.query("SELECT count(Picture) as `count` from `OpossumPictures`;", function(err, results, fields){
-                console.log(results[0].count);
-                opossumCount = results[0].count;
+                console.log((results as any[])[0].count);
+                opossumCount = (results as any[])[0].count;
                 msg.reply("Opossum Count -> " + opossumCount);
             });
 
@@ -126,5 +124,3 @@ async function userCommands(msg, args){
     }
 }
     //TODO both stroll and crypto need to be added to the db as blobs
-
-module.exports = { userCommands };
